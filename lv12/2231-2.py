@@ -11,7 +11,7 @@ for i in range(num - 1, max(num - 55, 0), - 1):
 
   if (i + getDigitSum(i))  == num:
     constructors.append(i)
-print(constructors)
+    
 if len(constructors) == 0:
   print(0)
 else:
