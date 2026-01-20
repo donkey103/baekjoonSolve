@@ -24,8 +24,20 @@ def checkChessBoard(chessBoard):
         wcounter = wcounter + 1
       if (N + M) % 2 == 1 and chessBoard[N][M] == 'W':
         wcounter = wcounter + 1
-  print(f'bcounter: {bcounter}, wcounter: {wcounter}')
   return min(bcounter, wcounter)
 
-print(checkChessBoard(board))
+def checkFullBoard(board):
+  result = []
+  x = M - 8
+  y = N - 8
+  # 전체 판을 한칸씩 옮겨가며 8x8 범위 결과 저장
+  for i in range(x + 1):
+    for j in range(y + 1):
+      chessBoard = []
+      for row in range(8):
+        chessBoard.append(board[j + row][i:i+8])
+      result.append(checkChessBoard(chessBoard))
+  return min(result)
+
+print(checkFullBoard(board))
 
